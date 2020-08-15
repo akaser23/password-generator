@@ -86,25 +86,29 @@ var generatePassword = function () {
     return generatePassword();
   }
 
-    var characters = "";
-    if (lower === "yes") {
-      characters = characters + "abcdefghijklmnopqrstuvwxyz";
-    }
-    if (upper === "yes") {
-      characters = characters + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (number === "yes") {
-      characters = characters + "0123456789";
-    }
-    if (special === "yes") {
-      characters = characters + "!@#$%&*_-+=?/.><";
-    }
-    return characters;
-  
-    for (var i = 0; i < length; i++) {
-      var characters = Math.floor(Math.random() * length; i++);
-    };
+  var characters = "";
+  if (lower === "yes") {
+    characters = characters + "abcdefghijklmnopqrstuvwxyz";
+  }
+  if (upper === "yes") {
+    characters = characters + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (number === "yes") {
+    characters = characters + "0123456789";
+  }
+  if (special === "yes") {
+    characters = characters + "!@#$%&*_-+=?/.><";
+  }
 
+  var pass = "";
+
+  for (var i = 0; i < length; i++) {
+    var char = Math.floor(Math.random() * characters.length + 1);
+
+    pass += characters.charAt(char);
+  }
+  
+  return pass;
 }
 
 // Get references to the #generate element
